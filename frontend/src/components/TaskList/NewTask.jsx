@@ -13,7 +13,7 @@ const NewTask = ({task}) => {
     const employeeId = userData.data.id; 
 
     try {
-        const res = await fetch('http://localhost:5000/api/v1/update-task', {
+        const res = await fetch('https://e-m-s-backend.onrender.com/api/v1/update-task', {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ 
