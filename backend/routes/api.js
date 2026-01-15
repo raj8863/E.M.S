@@ -1,5 +1,5 @@
 import express from 'express'
-import { login, register, seedUsers, updateTaskStatus } from '../controllers/authCountroller.js';
+import { login, register, updateTaskStatus } from '../controllers/authCountroller.js';
 import { createTask, getEmployees } from '../controllers/taskController.js';
 
 
@@ -14,6 +14,6 @@ router.post('/register', register);
 router.post('/create-task', createTask);
 router.get('/employees', getEmployees);
 router.put('/update-task', updateTaskStatus);
-router.post('/seed', seedUsers)
+
 
 export default router;

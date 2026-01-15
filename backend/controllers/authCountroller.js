@@ -71,36 +71,7 @@ export const register = async (req, res) => {
         res.status(500).json({ success: false, message: error.message });
     }
 };
-export const seedUsers = async (req, res) => {
-    try {
-        const users = req.body; // Expecting an array of users
 
-        if (!Array.isArray(users)) {
-            return res.status(400).json({ success: false, message: 'Data must be an array of users' });
-        }
-
-        // Clear existing data (Optional: Remove this line if you don't want to delete old data)
-        await User.deleteMany({}); 
-
-        // Hash passwords for everyone
-        const salt = await bcrypt.genSalt(10);
-        const hashedPassword = await bcrypt.hash("123", salt);
-
-        // Map through users to add the hashed password
-        const usersWithHashedPasswords = users.map(user => ({
-            ...user,
-            password: hashedPassword // Sets password to "123" for everyone
-        }));
-
-        // Insert all
-        await User.insertMany(usersWithHashedPasswords);
-
-        res.status(201).json({ success: true, message: 'Database Seeded Successfully' });
-
-    } catch (error) {
-        res.status(500).json({ success: false, message: error.message });
-    }
-};
 export const updateTaskStatus = async (req, res) => {
     try {
         const { employeeId, taskId, status } = req.body;
