@@ -22,7 +22,7 @@ const CreateTask = () => {
     };
 
     try {
-        const res = await fetch('http://localhost:5000/api/v1/create-task', {
+        const res = await fetch('https://e-m-s-backend.onrender.com/api/v1/create-task', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(payload)
