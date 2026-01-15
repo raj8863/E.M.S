@@ -11,7 +11,7 @@ const AuthProvider = ({ children }) => {
     const fetchEmployees = async () => {
       try {
         // Fetch employees from your new Backend
-        const response = await fetch('http://localhost:5000/api/v1/employees');
+        const response = await fetch('https://e-m-s-backend.onrender.com/api/v1/employees');
         const data = await response.json();
         
         if(data.success) {
